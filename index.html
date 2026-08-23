@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexora Earn</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>Vexora Earn</h1>
+                <p>Complete tasks & earn rewards</p>
+            </div>
+
+            <div class="balance">
+                <span>Balance</span>
+                <strong>$0.00</strong>
+            </div>
+        </header>
+
+        <!-- Welcome Card -->
+        <section class="welcome-card">
+            <div>
+                <span class="small-title">WELCOME BACK 👋</span>
+                <h2>Earn rewards<br>by completing tasks.</h2>
+                <p>Choose a task and start earning.</p>
+            </div>
+
+            <div class="coin">💰</div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>💵</span>
+                <div>
+                    <small>Total Earned</small>
+                    <strong>$0.00</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>✅</span>
+                <div>
+                    <small>Completed</small>
+                    <strong>0 Tasks</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Tasks -->
+        <section class="section">
+
+            <div class="section-title">
+                <h2>Available Tasks</h2>
+                <span>View All</span>
+            </div>
+
+            <div class="task-card">
+
+                <div class="task-icon telegram">✈️</div>
+
+                <div class="task-info">
+                    <h3>Join Telegram Channel</h3>
+                    <p>Join the official channel</p>
+                </div>
+
+                <div class="task-reward">
+                    <strong>+$0.10</strong>
+                    <button onclick="startTask('Join Telegram Channel')">
+                        Start
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="task-card">
+
+                <div class="task-icon twitter">𝕏</div>
+
+                <div class="task-info">
+                    <h3>Follow on X</h3>
+                    <p>Follow the project account</p>
+                </div>
+
+                <div class="task-reward">
+                    <strong>+$0.15</strong>
+                    <button onclick="startTask('Follow on X')">
+                        Start
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="task-card">
+
+                <div class="task-icon">📢</div>
+
+                <div class="task-info">
+                    <h3>Promotional Task</h3>
+                    <p>Complete a promotional action</p>
+                </div>
+
+                <div class="task-reward">
+                    <strong>+$0.20</strong>
+                    <button onclick="startTask('Promotional Task')">
+                        Start
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+
+            <button class="nav-item active">
+                <span>⌂</span>
+                <small>Home</small>
+            </button>
+
+            <button class="nav-item">
+                <span>✓</span>
+                <small>Tasks</small>
+            </button>
+
+            <button class="nav-item">
+                <span>💰</span>
+                <small>Wallet</small>
+            </button>
+
+            <button class="nav-item">
+                <span>👤</span>
+                <small>Profile</small>
+            </button>
+
+        </nav>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
