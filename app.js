@@ -530,7 +530,13 @@ function loadTelegramProfile() {
         .forEach(el => {
 
             el.textContent =
-                (
+                  document
+        .querySelectorAll("[data-telegram-photo]")
+        .forEach(el => {
+            if (user.photo_url) {
+                el.src = user.photo_url;
+            }
+        });  (
                     user.first_name || ""
                 ) +
                 (
