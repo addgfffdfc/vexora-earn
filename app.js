@@ -511,75 +511,95 @@ function updateBRAXRUI() {
 
 /* TELEGRAM USER */
 
-function loadTelegramProfile() {
+<div class="profile-card braxr-card">
 
-    if (
-        typeof Telegram === "undefined" ||
-        !Telegram.WebApp
-    ) {
-        return;
-    }
+    <div class="braxr-title">
+        <div class="braxr-logo">VXR</div>
+        <span>Vexora Token (VXR)</span>
+    </div>
 
-    const user =
-        Telegram.WebApp.initDataUnsafe?.user;
+    <div class="braxr-label">
+        Total Balance
+    </div>
 
-    if (!user) return;
-document
-    .querySelectorAll("[data-telegram-photo]")
-    .forEach(el => {
-        if (user.photo_url) {
-            el.src = user.photo_url;
-        }
-    });
+    <div class="braxr-balance" data-braxr-balance>
+        0.00 VXR
+    </div>
 
-    document
-    .querySelectorAll("[data-telegram-name]")
-    .forEach(el => {
-
-        el.textContent =
-            (user.first_name || "") +
-            (
-                user.last_name
-                    ? " " + user.last_name
-                    : ""
-            );
-
-    });
-                    user.first_name || ""
-                ) +
-                (
-                    user.last_name
-                        ? " " + user.last_name
-                        : ""
-                );
-
-        });
+</div>
 
 
-    document
-        .querySelectorAll("[data-telegram-username]")
-        .forEach(el => {
+<div class="profile-card dollar-card">
 
-            el.textContent =
-                user.username
-                    ? "@" + user.username
-                    : "Telegram User";
+    <div class="dollar-title">
+        <div class="dollar-logo">$</div>
+        <span>Dollar Balance</span>
+    </div>
 
-        });
+    <div class="dollar-label">
+        Total Balance
+    </div>
+
+    <div class="dollar-balance" data-dollar-balance>
+        $0.00
+    </div>
+
+</div>
 
 
-    if (user.photo_url) {
+<div class="profile-card level-progress-card">
 
-        document
-            .querySelectorAll("[data-telegram-photo]")
-            .forEach(img => {
+    <div class="level-progress-header">
+        <span>Level Progress</span>
+        <strong data-braxr-level>Level 1</strong>
+    </div>
 
-                img.src = user.photo_url;
+    <div class="progress-bar">
+        <div
+            class="progress-fill"
+            data-braxr-progress
+            style="width: 0%;">
+        </div>
+    </div>
 
-            });
-    }
-}
+    <div class="progress-text">
+        <span data-braxr-progress-text>0 / 200 VXR</span>
+    </div>
 
+    <p data-braxr-next-level>
+        Reach 200 VXR to unlock Level 2
+    </p>
+
+</div>
+
+
+<div class="profile-card withdraw-card">
+
+    <div class="withdraw-title">
+        <div class="withdraw-logo">$+</div>
+
+        <div>
+            <h3>Withdraw Dollar</h3>
+            <p>Withdraw your dollar balance</p>
+        </div>
+    </div>
+
+    <div class="withdraw-bottom">
+
+        <strong data-dollar-balance>
+            $0.00
+        </strong>
+
+        <button
+            class="action-button"
+            onclick="alert('Withdrawal will be available soon.')"
+        >
+            Withdraw
+        </button>
+
+    </div>
+
+</div>
 
 /* NO TASK / TASK LIST */
 
