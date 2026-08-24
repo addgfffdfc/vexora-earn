@@ -358,3 +358,307 @@ function applyVexoraTheme() {
 }
 
 applyVexoraTheme();
+
+/* ===== BRAXR SYSTEM ===== */
+
+const BRAXR_SYSTEM = {
+
+    tokenBalance: Number(
+        localStorage.getItem("braxr_balance") || 0
+    ),
+
+    dollarBalance: Number(
+        localStorage.getItem("dollar_balance") || 0
+    ),
+
+    levels: [
+        { level: 1, min: 0, max: 199 },
+        { level: 2, min: 200, max: 499 },
+        { level: 3, min: 500, max: 999 },
+        { level: 4, min: 1000, max: 1999 },
+        { level: 5, min: 2000, max: 3999 },
+        { level: 6, min: 4000, max: Infinity }
+    ],
+
+    tasks: []
+};
+
+
+/* SAVE BALANCE */
+
+function saveBRAXR() {
+
+    localStorage.setItem(
+        "braxr_balance",
+        BRAXR_SYSTEM.tokenBalance
+    );
+
+    localStorage.setItem(
+        "dollar_balance",
+        BRAXR_SYSTEM.dollarBalance
+    );
+}
+
+
+/* FIND LEVEL */
+
+function getBRAXRLevel(tokens) {
+
+    for (const level of BRAXR_SYSTEM.levels) {
+
+        if (
+            tokens >= level.min &&
+            tokens <= level.max
+        ) {
+            return level.level;
+        }
+    }
+
+    return 1;
+}
+
+
+/* ADD TOKEN */
+
+function addBRAXR(amount) {
+
+    BRAXR_SYSTEM.tokenBalance += Number(amount);
+
+    saveBRAXR();
+    updateBRAXRUI();
+}
+
+
+/* ADD DOLLAR */
+
+function addDollar(amount) {
+
+    BRAXR_SYSTEM.dollarBalance += Number(amount);
+
+    saveBRAXR();
+    updateBRAXRUI();
+}
+
+
+/* UPDATE BALANCE */
+
+function updateBRAXRUI() {
+
+    const token =
+        BRAXR_SYSTEM.tokenBalance.toFixed(2);
+
+    const dollar =
+        BRAXR_SYSTEM.dollarBalance.toFixed(2);
+
+    const level =
+        getBRAXRLevel(
+            BRAXR_SYSTEM.tokenBalance
+        );
+
+
+    document
+        .querySelectorAll("[data-braxr-balance]")
+        .forEach(el => {
+
+            el.textContent =
+                token + " BRAXR";
+
+        });
+
+
+    document
+        .querySelectorAll("[data-dollar-balance]")
+        .forEach(el => {
+
+            el.textContent =
+                "$" + dollar;
+
+        });
+
+
+    document
+        .querySelectorAll("[data-braxr-level]")
+        .forEach(el => {
+
+            el.textContent =
+                "Level " + level;
+
+        });
+}
+
+
+/* TELEGRAM USER */
+
+function loadTelegramProfile() {
+
+    if (
+        typeof Telegram === "undefined" ||
+        !Telegram.WebApp
+    ) {
+        return;
+    }
+
+    const user =
+        Telegram.WebApp.initDataUnsafe?.user;
+
+    if (!user) return;
+
+
+    document
+        .querySelectorAll("[data-telegram-name]")
+        .forEach(el => {
+
+            el.textContent =
+                (
+                    user.first_name || ""
+                ) +
+                (
+                    user.last_name
+                        ? " " + user.last_name
+                        : ""
+                );
+
+        });
+
+
+    document
+        .querySelectorAll("[data-telegram-username]")
+        .forEach(el => {
+
+            el.textContent =
+                user.username
+                    ? "@" + user.username
+                    : "Telegram User";
+
+        });
+
+
+    if (user.photo_url) {
+
+        document
+            .querySelectorAll("[data-telegram-photo]")
+            .forEach(img => {
+
+                img.src = user.photo_url;
+
+            });
+    }
+}
+
+
+/* NO TASK / TASK LIST */
+
+function renderAvailableTasks() {
+
+    const container =
+        document.querySelector(
+            "[data-available-tasks]"
+        );
+
+    if (!container) return;
+
+
+    if (
+        !BRAXR_SYSTEM.tasks ||
+        BRAXR_SYSTEM.tasks.length === 0
+    ) {
+
+        container.innerHTML = `
+            <div class="no-tasks">
+                <strong>No Tasks Available</strong>
+                Check back later for new tasks.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        BRAXR_SYSTEM.tasks.map(task => `
+
+            <div class="task-card">
+
+                <div class="task-icon">
+                    ${task.icon || "🎯"}
+                </div>
+
+                <div class="task-info">
+
+                    <h3>
+                        ${task.title}
+                    </h3>
+
+                    <p>
+                        ${task.description || ""}
+                    </p>
+
+                </div>
+
+                <div class="task-reward">
+
+                    <strong>
+                        +${task.token} BRAXR
+                    </strong>
+
+                    <strong>
+                        +$${Number(
+                            task.dollar || 0
+                        ).toFixed(2)}
+                    </strong>
+
+                    <button
+                        onclick="completeBRAXRTask('${task.id}')"
+                    >
+                        Start
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+}
+
+
+/* COMPLETE TASK */
+
+function completeBRAXRTask(taskId) {
+
+    const task =
+        BRAXR_SYSTEM.tasks.find(
+            x => x.id === taskId
+        );
+
+    if (!task) return;
+
+
+    addBRAXR(task.token);
+
+    addDollar(task.dollar);
+
+
+    BRAXR_SYSTEM.tasks =
+        BRAXR_SYSTEM.tasks.filter(
+            x => x.id !== taskId
+        );
+
+
+    renderAvailableTasks();
+}
+
+
+/* START SYSTEM */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateBRAXRUI();
+
+        loadTelegramProfile();
+
+        renderAvailableTasks();
+
+    }
+);
