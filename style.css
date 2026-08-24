@@ -960,4 +960,190 @@ body {
         );
 
     border-radius: 10px;
+
+}/* =========================================
+   VEXORA — REFERRAL + PROFILE FINAL THEME
+   ========================================= */
+
+/* Referral/Profile page background */
+.referral-page,
+.profile-page {
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(184, 76, 255, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(56, 217, 255, 0.08),
+            transparent 35%
+        ),
+        #070b1c !important;
+}
+
+
+/* Referral main card */
+.referral-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(184, 76, 255, 0.13),
+            rgba(52, 124, 255, 0.10)
+        ) !important;
+
+    border: 1px solid rgba(126, 88, 255, 0.55) !important;
+
+    box-shadow:
+        0 0 30px rgba(124, 60, 255, 0.15) !important;
+}
+
+
+/* Referral icon */
+.referral-card .icon,
+.referral-icon {
+    color: #38d9ff !important;
+}
+
+
+/* Referral button */
+.referral-card button,
+.invite-button,
+.referral-button {
+    background:
+        linear-gradient(
+            135deg,
+            #b84cff,
+            #7048ff,
+            #347cff
+        ) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 8px 25px rgba(112, 72, 255, 0.35) !important;
+}
+
+
+/* Referral text */
+.referral-card h2,
+.referral-card h3 {
+    color: #ffffff !important;
+}
+
+.referral-card p {
+    color: #aeb7d1 !important;
+}
+
+
+/* =========================================
+   PROFILE
+   ========================================= */
+
+.profile-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(184, 76, 255, 0.12),
+            rgba(52, 124, 255, 0.10)
+        ) !important;
+
+    border: 1px solid rgba(126, 88, 255, 0.55) !important;
+
+    box-shadow:
+        0 0 30px rgba(124, 60, 255, 0.14) !important;
+}
+
+
+/* Profile avatar */
+.profile-avatar {
+    background:
+        linear-gradient(
+            135deg,
+            #b84cff,
+            #7048ff,
+            #347cff
+        ) !important;
+
+    box-shadow:
+        0 0 25px rgba(184, 76, 255, 0.35) !important;
+}
+
+
+/* Level + Status */
+.profile-stat {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 25, 52, 0.96),
+            rgba(9, 15, 34, 0.96)
+        ) !important;
+
+    border: 1px solid rgba(184, 76, 255, 0.35) !important;
+}
+
+.profile-stat strong {
+    color: #38d9ff !important;
+}
+
+
+/* Wallet */
+.profile-wallet {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 27, 57, 0.98),
+            rgba(10, 16, 38, 0.98)
+        ) !important;
+
+    border: 1px solid rgba(56, 217, 255, 0.30) !important;
+
+    box-shadow:
+        0 0 30px rgba(56, 217, 255, 0.08) !important;
+}
+
+.profile-wallet .balance {
+    color: #ffc857 !important;
+}
+
+
+/* Withdraw */
+.profile-withdraw {
+    background:
+        linear-gradient(
+            135deg,
+            #b84cff,
+            #7048ff,
+            #347cff
+        ) !important;
+
+    color: white !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 8px 25px rgba(112, 72, 255, 0.35) !important;
+}
+
+
+/* Community */
+.profile-community {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(56, 217, 255, 0.08),
+            rgba(124, 60, 255, 0.08)
+        ) !important;
+
+    border: 1px solid rgba(56, 217, 255, 0.30) !important;
+}
+
+
+/* Remove old orange */
+.profile-card button,
+.profile-page button,
+.referral-page button {
+    border-color: transparent !important;
 }
