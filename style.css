@@ -1147,3 +1147,140 @@ body {
 .referral-page button {
     border-color: transparent !important;
 }
+/* =========================================
+   VEXORA — REMOVE ORANGE / FINAL COLOR FIX
+   PURPLE • BLUE • CYAN
+   ========================================= */
+
+/* সব Profile/Referral page button */
+#dynamic-page button,
+#dynamic-page .action-button,
+#dynamic-page .withdraw-btn,
+#dynamic-page .invite-button,
+#dynamic-page .referral-button {
+    background: linear-gradient(
+        135deg,
+        #b84cff 0%,
+        #7048ff 45%,
+        #347cff 75%,
+        #38d9ff 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+
+    box-shadow:
+        0 8px 25px rgba(112, 72, 255, 0.38),
+        0 0 18px rgba(56, 217, 255, 0.12) !important;
+}
+
+
+/* Withdraw button */
+#dynamic-page .action-button {
+    background: linear-gradient(
+        135deg,
+        #b84cff,
+        #7048ff,
+        #347cff,
+        #38d9ff
+    ) !important;
+}
+
+
+/* Referral / Invite Friends */
+#dynamic-page .referral-button,
+#dynamic-page .invite-button {
+    background: linear-gradient(
+        135deg,
+        #b84cff,
+        #7048ff,
+        #347cff,
+        #38d9ff
+    ) !important;
+}
+
+
+/* Level + Status */
+#dynamic-page .profile-status div {
+    border-color: rgba(126, 88, 255, 0.50) !important;
+}
+
+#dynamic-page .profile-status strong {
+    color: #38d9ff !important;
+}
+
+
+/* Profile avatar */
+#dynamic-page .profile-avatar {
+    background: linear-gradient(
+        135deg,
+        #b84cff,
+        #7048ff,
+        #347cff,
+        #38d9ff
+    ) !important;
+
+    box-shadow:
+        0 0 25px rgba(184, 76, 255, 0.35) !important;
+}
+
+
+/* Profile cards */
+#dynamic-page .profile-card {
+    background: linear-gradient(
+        145deg,
+        rgba(184, 76, 255, 0.11),
+        rgba(52, 124, 255, 0.10),
+        rgba(56, 217, 255, 0.05)
+    ) !important;
+
+    border-color: rgba(126, 88, 255, 0.50) !important;
+}
+
+
+/* Wallet */
+#dynamic-page .profile-card:nth-of-type(3) {
+    border-color: rgba(56, 217, 255, 0.35) !important;
+}
+
+
+/* Community button */
+#dynamic-page .community-card button {
+    background: linear-gradient(
+        135deg,
+        #347cff,
+        #38d9ff
+    ) !important;
+}
+
+
+/* Referral/Profile active navigation */
+.bottom-nav .nav-item.active {
+    background: linear-gradient(
+        135deg,
+        rgba(184, 76, 255, 0.38),
+        rgba(112, 72, 255, 0.35),
+        rgba(52, 124, 255, 0.28)
+    ) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 0 25px rgba(124, 60, 255, 0.25) !important;
+}
+
+
+/* Active icon */
+.bottom-nav .nav-item.active span {
+    color: #38d9ff !important;
+}
+
+
+/* Remove old orange borders/shadows */
+#dynamic-page .profile-header,
+#dynamic-page .profile-status div,
+#dynamic-page .profile-card {
+    border-color: rgba(126, 88, 255, 0.50) !important;
+    box-shadow:
+        0 0 25px rgba(124, 60, 255, 0.12) !important;
+}
