@@ -527,7 +527,13 @@ function loadTelegramProfile() {
         Telegram.WebApp.initDataUnsafe?.user;
 
     if (!user) return;
-
+document
+    .querySelectorAll("[data-telegram-photo]")
+    .forEach(el => {
+        if (user.photo_url) {
+            el.src = user.photo_url;
+        }
+    });
 
     document
         .querySelectorAll("[data-telegram-name]")
