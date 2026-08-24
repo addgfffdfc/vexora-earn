@@ -202,17 +202,22 @@ function showProfile() {
             </div>
 
 
-            <div class="profile-card">
+            <div class="profile-card braxr-card">
 
-                <h3>💳 Wallet</h3>
+    <div class="braxr-title">
+        <div class="braxr-logo">B</div>
+        <span>BRAXR Token</span>
+    </div>
 
-                <p>Available Balance</p>
+    <div class="braxr-label">
+        Available Balance
+    </div>
 
-                <strong class="profile-balance">
-                    $0.00
-                </strong>
+    <div class="braxr-balance" data-braxr-balance>
+        0.00 BRAXR
+    </div>
 
-            </div>
+</div>
 
 
             <div class="profile-card">
