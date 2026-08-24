@@ -173,8 +173,12 @@ function showProfile() {
             <div class="profile-header">
 
                 <div class="profile-avatar">
-                    👤
-                </div>
+    <img
+        src=""
+        alt="Profile"
+        data-telegram-photo
+    >
+</div>
 
                 <div class="profile-name">
 
