@@ -216,7 +216,23 @@ function showProfile() {
     <div class="braxr-balance" data-braxr-balance>
         0.00 BRAXR
     </div>
+<div class="profile-card dollar-card">
 
+    <div class="dollar-title">
+        <div class="dollar-logo">$</div>
+
+        <span>Dollar Balance</span>
+    </div>
+
+    <div class="dollar-label">
+        Available Balance
+    </div>
+
+    <div class="dollar-balance" data-dollar-balance>
+        $0.00
+    </div>
+
+</div>
 </div>
 
 
