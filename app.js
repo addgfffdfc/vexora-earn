@@ -174,9 +174,10 @@ function showProfile() {
 
                 <div class="profile-avatar">
     <img
-        src=""
-        alt="Profile"
+        src="${user.photo_url || ''}"
+        alt=""
         data-telegram-photo
+        onerror="this.style.display='none';"
     >
 </div>
 
@@ -184,7 +185,7 @@ function showProfile() {
 
                     <h2>${user.name}</h2>
 
-                    <p>${user.username}</p>
+                    <p>${user.username ? "@" + user.username : ""}</p>
 
                 </div>
 
