@@ -1,101 +1,307 @@
+// Vexora Earn Telegram Mini App
+
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
     tg.ready();
     tg.expand();
+
+    document.documentElement.style.setProperty(
+        "--tg-bg",
+        tg.backgroundColor || "#0b1020"
+    );
 }
 
-function startTask(name) {
-    alert(name + "\n\nTask opened.");
-}
 
+// App elements
+const app = document.querySelector(".app");
 const welcome = document.querySelector(".welcome-card");
 const stats = document.querySelector(".stats");
 const section = document.querySelector(".section");
-const nav = document.querySelectorAll(".nav-item");
+const navItems = document.querySelectorAll(".nav-item");
 
-let pageBox = document.createElement("div");
-pageBox.id = "page-box";
+
+// Dynamic page
+const pageBox = document.createElement("section");
+
+pageBox.id = "dynamic-page";
+
 pageBox.style.display = "none";
 
-document.querySelector(".app").insertBefore(
+app.insertBefore(
     pageBox,
     document.querySelector(".bottom-nav")
 );
 
-function openPage(page) {
+
+// Telegram user information
+function getUserInfo() {
+
+    if (
+        tg &&
+        tg.initDataUnsafe &&
+        tg.initDataUnsafe.user
+    ) {
+
+        const user = tg.initDataUnsafe.user;
+
+        return {
+
+            name:
+                user.first_name ||
+                "Telegram User",
+
+            username:
+                user.username
+                    ? "@" + user.username
+                    : "No username"
+
+        };
+
+    }
+
+    return {
+
+        name: "Telegram User",
+
+        username: "No username"
+
+    };
+}
+
+
+// Task
+function startTask(taskName) {
+
+    if (tg) {
+        tg.HapticFeedback?.impactOccurred("light");
+    }
+
+    alert(
+        taskName +
+        "\n\nTask opened.\nComplete the task and come back to claim your reward."
+    );
+}
+
+
+// Home
+function showHome() {
+
+    welcome.style.display = "";
+    stats.style.display = "";
+    section.style.display = "";
+
+    pageBox.style.display = "none";
+}
+
+
+// Tasks
+function showTasks() {
+
+    welcome.style.display = "none";
+    stats.style.display = "none";
+    section.style.display = "block";
+
+    pageBox.style.display = "none";
+
+    const title =
+        section.querySelector(".section-title h2");
+
+    if (title) {
+        title.textContent = "Available Tasks";
+    }
+}
+
+
+// Referral
+function showReferral() {
 
     welcome.style.display = "none";
     stats.style.display = "none";
     section.style.display = "none";
-    pageBox.style.display = "none";
 
-    if (page === "Home") {
-        welcome.style.display = "";
-        stats.style.display = "";
-        section.style.display = "";
-    }
+    pageBox.style.display = "block";
 
-    if (page === "Tasks") {
-        section.style.display = "";
+    pageBox.innerHTML = `
 
-        section.querySelector(".section-title h2").textContent =
-            "All Tasks";
-    }
+        <div class="page-card">
 
-    if (page === "Wallet") {
-        pageBox.style.display = "block";
+            <h2>👥 Referral</h2>
 
-        pageBox.innerHTML = `
-            <div style="
-                padding:30px;
-                text-align:center;
-                color:white;
-            ">
-                <h2>💰 Wallet</h2>
-                <h1>$0.00</h1>
-                <p>Your available balance</p>
-                <button onclick="alert('Complete tasks to earn rewards.')">
-                    Withdraw
+            <p>
+                Invite friends and earn rewards.
+            </p>
+
+            <div class="referral-box">
+
+                <p>Your Referral Link</p>
+
+                <div class="referral-link">
+                    Coming Soon
+                </div>
+
+                <button
+                    class="action-button"
+                    onclick="alert('Referral system will be available soon.')"
+                >
+                    Invite Friends
                 </button>
-            </div>
-        `;
-    }
 
-    if (page === "Profile") {
-        pageBox.style.display = "block";
-
-        pageBox.innerHTML = `
-            <div style="
-                padding:30px;
-                text-align:center;
-                color:white;
-            ">
-                <h2>👤 Profile</h2>
-                <h3>Vexora Earn User</h3>
-                <p>Total Earned: $0.00</p>
-                <p>Completed Tasks: 0</p>
             </div>
-        `;
-    }
+
+        </div>
+
+    `;
 }
 
-nav.forEach(function(button) {
+
+// Profile
+function showProfile() {
+
+    welcome.style.display = "none";
+    stats.style.display = "none";
+    section.style.display = "none";
+
+    pageBox.style.display = "block";
+
+    const user = getUserInfo();
+
+    pageBox.innerHTML = `
+
+        <div class="profile-page">
+
+            <div class="profile-header">
+
+                <div class="profile-avatar">
+                    👤
+                </div>
+
+                <div class="profile-name">
+
+                    <h2>${user.name}</h2>
+
+                    <p>${user.username}</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-status">
+
+                <div>
+                    <span>LEVEL</span>
+                    <strong>Level 1</strong>
+                </div>
+
+                <div>
+                    <span>STATUS</span>
+                    <strong>Active</strong>
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <h3>💳 Wallet</h3>
+
+                <p>Available Balance</p>
+
+                <strong class="profile-balance">
+                    $0.00
+                </strong>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <h3>💰 Withdraw</h3>
+
+                <p>
+                    Withdraw your available balance.
+                </p>
+
+                <button
+                    class="action-button"
+                    onclick="alert('Withdrawal will be available soon.')"
+                >
+                    Withdraw
+                </button>
+
+            </div>
+
+
+            <div class="profile-card community-card">
+
+                <h3>🌐 Community</h3>
+
+                <p>
+                    Join our community and stay updated.
+                </p>
+
+                <button
+                    class="action-button"
+                    onclick="alert('Community link will be added soon.')"
+                >
+                    Join Community
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+// Navigation
+navItems.forEach(function(button) {
 
     button.addEventListener("click", function() {
 
-        nav.forEach(function(item) {
+        navItems.forEach(function(item) {
+
             item.classList.remove("active");
+
         });
 
         this.classList.add("active");
 
         const page =
-            this.querySelector("small").textContent.trim();
+            this.dataset.page;
 
-        openPage(page);
+        if (page === "home") {
+            showHome();
+        }
+
+        else if (page === "tasks") {
+            showTasks();
+        }
+
+        else if (page === "referral") {
+            showReferral();
+        }
+
+        else if (page === "profile") {
+            showProfile();
+        }
+
+        if (tg) {
+            tg.HapticFeedback?.selectionChanged();
+        }
+
     });
 
 });
 
-openPage("Home");
+
+// Start on Home
+showHome();
+
+
+// Telegram Main Button
+if (tg) {
+    tg.MainButton.hide();
+}
