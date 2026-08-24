@@ -533,17 +533,18 @@ document
     });
 
     document
-        .querySelectorAll("[data-telegram-name]")
-        .forEach(el => {
+    .querySelectorAll("[data-telegram-name]")
+    .forEach(el => {
 
-            el.textContent =
-                  document
-        .querySelectorAll("[data-telegram-photo]")
-        .forEach(el => {
-            if (user.photo_url) {
-                el.src = user.photo_url;
-            }
-        });  (
+        el.textContent =
+            (user.first_name || "") +
+            (
+                user.last_name
+                    ? " " + user.last_name
+                    : ""
+            );
+
+    });
                     user.first_name || ""
                 ) +
                 (
