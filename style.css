@@ -501,3 +501,463 @@ button:active {
 .nav-item.active span {
     color: #ff7438;
 }
+/* =====================================================
+   VEXORA EARN — LOGO COLOR THEME
+   Purple • Cyan • Blue • Gold • Dark Navy
+   ===================================================== */
+
+:root {
+    --bg: #070b1c;
+    --bg2: #0b1228;
+    --card: #0d142b;
+    --card2: #111a35;
+
+    --purple: #b84cff;
+    --purple2: #7c3cff;
+
+    --cyan: #38d9ff;
+    --blue: #347cff;
+
+    --gold: #ffc857;
+    --gold2: #ff9f1c;
+
+    --white: #f7f8ff;
+    --muted: #9ba5c4;
+
+    --border: rgba(126, 88, 255, 0.35);
+
+    --gradient:
+        linear-gradient(
+            135deg,
+            #a93cff 0%,
+            #7048ff 35%,
+            #2f8dff 70%,
+            #38d9ff 100%
+        );
+
+    --gold-gradient:
+        linear-gradient(
+            135deg,
+            #ffe58a,
+            #ffc857,
+            #ff9f1c
+        );
+
+    --glow:
+        0 0 25px rgba(105, 76, 255, 0.25);
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(164, 65, 255, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(43, 190, 255, 0.12),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--white);
+}
+
+
+/* ================= MAIN APP ================= */
+
+.app {
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(77, 75, 255, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+}
+
+
+/* ================= HEADER ================= */
+
+.header h1 {
+    color: var(--white);
+}
+
+.header p {
+    color: var(--muted);
+}
+
+.balance {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124, 60, 255, 0.16),
+            rgba(56, 217, 255, 0.08)
+        );
+
+    border: 1px solid rgba(126, 88, 255, 0.45);
+
+    box-shadow:
+        0 0 20px rgba(124, 60, 255, 0.12);
+}
+
+.balance span {
+    color: var(--muted);
+}
+
+.balance strong {
+    color: var(--gold);
+}
+
+
+/* ================= WELCOME CARD ================= */
+
+.welcome-card {
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(56, 217, 255, 0.25),
+            transparent 30%
+        ),
+        var(--gradient);
+
+    border: 1px solid rgba(139, 105, 255, 0.5);
+
+    box-shadow:
+        0 15px 45px rgba(75, 48, 180, 0.25);
+}
+
+.welcome-card h2 {
+    color: white;
+}
+
+.welcome-card p {
+    color: rgba(255,255,255,0.75);
+}
+
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(133, 55, 255, 0.13),
+            rgba(30, 130, 255, 0.08)
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--glow);
+}
+
+.profile-card h2,
+.profile-card h3 {
+    color: white;
+}
+
+
+/* ================= STAT CARDS ================= */
+
+.stat-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 27, 57, 0.95),
+            rgba(10, 16, 38, 0.95)
+        );
+
+    border: 1px solid rgba(91, 82, 210, 0.28);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.18);
+}
+
+.stat-card strong {
+    color: white;
+}
+
+.stat-card small {
+    color: var(--muted);
+}
+
+
+/* ================= SECTION TITLE ================= */
+
+.section-title h2 {
+    color: white;
+}
+
+.section-title span {
+    color: var(--cyan);
+}
+
+
+/* ================= TASK CARDS ================= */
+
+.task-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 25, 52, 0.96),
+            rgba(9, 15, 34, 0.96)
+        );
+
+    border: 1px solid rgba(91, 82, 210, 0.30);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.18);
+}
+
+.task-card:hover {
+    border-color: rgba(184, 76, 255, 0.65);
+
+    box-shadow:
+        0 0 25px rgba(124, 60, 255, 0.16);
+}
+
+.task-info h3 {
+    color: white;
+}
+
+.task-info p {
+    color: var(--muted);
+}
+
+.task-reward strong {
+    color: var(--gold);
+}
+
+
+/* ================= START BUTTON ================= */
+
+.task-reward button {
+    background:
+        linear-gradient(
+            135deg,
+            #a93cff,
+            #6f48ff,
+            #348cff
+        );
+
+    color: white;
+
+    border: none;
+
+    box-shadow:
+        0 6px 20px rgba(103, 67, 255, 0.35);
+
+    transition: 0.2s;
+}
+
+.task-reward button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(103, 67, 255, 0.5);
+}
+
+
+/* ================= ICONS ================= */
+
+.task-icon.telegram {
+    background:
+        linear-gradient(
+            135deg,
+            #38d9ff,
+            #347cff
+        );
+
+    box-shadow:
+        0 0 18px rgba(56, 217, 255, 0.25);
+}
+
+.task-icon.twitter {
+    background:
+        linear-gradient(
+            135deg,
+            #7c3cff,
+            #b84cff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 0 18px rgba(184, 76, 255, 0.25);
+}
+
+.task-icon {
+    border: 1px solid rgba(126, 88, 255, 0.25);
+}
+
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 48, 0.98),
+            rgba(7, 12, 29, 0.98)
+        );
+
+    border: 1px solid rgba(91, 82, 210, 0.30);
+
+    box-shadow:
+        0 -8px 30px rgba(0,0,0,0.25);
+}
+
+.nav-item {
+    color: #7f89a8;
+}
+
+.nav-item.active {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 60, 255, 0.35),
+            rgba(52, 124, 255, 0.25)
+        );
+
+    box-shadow:
+        0 0 20px rgba(124, 60, 255, 0.18);
+}
+
+.nav-item.active span {
+    color: var(--cyan);
+}
+
+.nav-item small {
+    color: inherit;
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-header {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(184, 76, 255, 0.13),
+            rgba(52, 124, 255, 0.10)
+        );
+
+    border: 1px solid var(--border);
+}
+
+
+/* ================= WALLET ================= */
+
+.wallet-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 29, 62, 0.98),
+            rgba(10, 16, 38, 0.98)
+        );
+
+    border: 1px solid rgba(56, 217, 255, 0.25);
+
+    box-shadow:
+        0 0 25px rgba(56, 217, 255, 0.08);
+}
+
+.wallet-card strong {
+    color: var(--gold);
+}
+
+
+/* ================= WITHDRAW ================= */
+
+.withdraw-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #b84cff,
+            #7048ff,
+            #348cff
+        );
+
+    color: white;
+
+    border: none;
+
+    box-shadow:
+        0 8px 25px rgba(112, 72, 255, 0.35);
+}
+
+
+/* ================= COMMUNITY ================= */
+
+.community-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(56, 217, 255, 0.08),
+            rgba(124, 60, 255, 0.08)
+        );
+
+    border: 1px solid rgba(56, 217, 255, 0.25);
+}
+
+.community-card button {
+    background:
+        linear-gradient(
+            135deg,
+            #347cff,
+            #38d9ff
+        );
+
+    color: white;
+
+    border: none;
+
+    box-shadow:
+        0 6px 20px rgba(56, 217, 255, 0.25);
+}
+
+
+/* ================= TEXT ACCENTS ================= */
+
+.gold {
+    color: var(--gold);
+}
+
+.purple {
+    color: var(--purple);
+}
+
+.cyan {
+    color: var(--cyan);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            var(--purple),
+            var(--cyan)
+        );
+
+    border-radius: 10px;
+}
