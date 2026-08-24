@@ -305,3 +305,56 @@ showHome();
 if (tg) {
     tg.MainButton.hide();
 }
+/* =========================================
+   VEXORA THEME FIX
+   Referral + Profile
+   ========================================= */
+
+function applyVexoraTheme() {
+
+    document.querySelectorAll("button").forEach(button => {
+
+        const text = button.innerText.trim().toLowerCase();
+
+        if (
+            text.includes("invite") ||
+            text.includes("referral")
+        ) {
+            button.classList.add("referral-button");
+        }
+
+        if (
+            text.includes("withdraw")
+        ) {
+            button.classList.add("profile-withdraw");
+        }
+    });
+
+    document.querySelectorAll("div, section").forEach(el => {
+
+        const text = el.innerText?.trim() || "";
+
+        if (
+            text.includes("Your Referral Link") &&
+            text.includes("Invite Friends")
+        ) {
+            el.classList.add("referral-card");
+        }
+
+        if (
+            text.includes("Available Balance") &&
+            text.includes("Withdraw")
+        ) {
+            el.classList.add("profile-wallet");
+        }
+
+        if (
+            text.includes("Community") &&
+            text.includes("Join Community")
+        ) {
+            el.classList.add("profile-community");
+        }
+    });
+}
+
+applyVexoraTheme();
