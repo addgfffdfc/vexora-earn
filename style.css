@@ -1304,3 +1304,13 @@ body {
 .nav-item small {
     font-size: 9px !important;
 }
+/* Referral shadow/glow remove */
+.bottom-nav .nav-item:nth-child(3).active {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+.bottom-nav .nav-item:nth-child(3).active {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
