@@ -237,10 +237,6 @@ function showProfile() {
         $0.00
     </div>
 
-</div>
-</div>
-
-
             <div class="profile-card">
 
                 <h3>💰 Withdraw</h3>
