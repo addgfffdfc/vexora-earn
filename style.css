@@ -330,3 +330,174 @@ button:active {
         height: 40px;
     }
 }
+/* =========================
+   VEXORA PROFILE DESIGN
+========================= */
+
+#dynamic-page {
+    padding: 20px 18px 110px;
+    color: #ffffff;
+}
+
+.profile-page {
+    width: 100%;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+    border: 1px solid rgba(255, 105, 45, 0.35);
+    border-radius: 24px;
+    background: rgba(20, 20, 27, 0.85);
+    box-shadow: 0 0 25px rgba(255, 105, 45, 0.08);
+    margin-bottom: 16px;
+}
+
+.profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    background: linear-gradient(135deg, #ff6b32, #ff9a3d);
+    box-shadow: 0 0 20px rgba(255, 105, 45, 0.3);
+}
+
+.profile-name h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.profile-name p {
+    margin: 6px 0 0;
+    color: #a5a5ad;
+    font-size: 15px;
+}
+
+
+/* Level + Status */
+
+.profile-status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.profile-status div {
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(20, 20, 27, 0.85);
+    border: 1px solid rgba(255, 105, 45, 0.25);
+}
+
+.profile-status span {
+    display: block;
+    color: #9999a2;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.profile-status strong {
+    font-size: 18px;
+    color: #ff793c;
+}
+
+
+/* Profile Cards */
+
+.profile-card {
+    padding: 22px;
+    margin-bottom: 15px;
+    border-radius: 22px;
+    background: rgba(20, 20, 27, 0.9);
+    border: 1px solid rgba(255, 105, 45, 0.28);
+    box-shadow: 0 0 25px rgba(255, 105, 45, 0.05);
+}
+
+.profile-card h3 {
+    margin: 0 0 12px;
+    font-size: 21px;
+}
+
+.profile-card p {
+    color: #9d9da6;
+    margin: 5px 0 12px;
+}
+
+.profile-balance {
+    display: block;
+    font-size: 34px;
+    color: #ffffff;
+    margin: 8px 0;
+}
+
+
+/* Orange Buttons */
+
+.action-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff6330, #ff8b3d);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(255, 105, 45, 0.25);
+}
+
+.action-button:active {
+    transform: scale(0.97);
+}
+
+
+/* Community */
+
+.community-card {
+    margin-bottom: 25px;
+}
+
+
+/* Bottom Navigation */
+
+.bottom-nav {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    width: calc(100% - 28px);
+    margin: 0 14px 14px;
+    padding: 10px 6px;
+    border-radius: 24px;
+}
+
+.nav-item {
+    min-height: 70px;
+    border: none;
+    background: transparent;
+    color: #8e8f9a;
+    border-radius: 18px;
+}
+
+.nav-item span {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.nav-item small {
+    font-size: 12px;
+}
+
+.nav-item.active {
+    color: #ffffff;
+    background: rgba(45, 77, 145, 0.55);
+}
+
+.nav-item.active span {
+    color: #ff7438;
+}
