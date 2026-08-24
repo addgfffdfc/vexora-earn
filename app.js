@@ -1,167 +1,101 @@
-// Telegram Mini App
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
     tg.ready();
     tg.expand();
-
-    document.documentElement.style.setProperty(
-        "--tg-bg",
-        tg.backgroundColor || "#0b1020"
-    );
 }
 
-// Main sections
-const welcomeCard = document.querySelector(".welcome-card");
+function startTask(name) {
+    alert(name + "\n\nTask opened.");
+}
+
+const welcome = document.querySelector(".welcome-card");
 const stats = document.querySelector(".stats");
-const taskSection = document.querySelector(".section");
-const navItems = document.querySelectorAll(".nav-item");
+const section = document.querySelector(".section");
+const nav = document.querySelectorAll(".nav-item");
 
-// Create extra page area
-const app = document.querySelector(".app");
+let pageBox = document.createElement("div");
+pageBox.id = "page-box";
+pageBox.style.display = "none";
 
-const extraPage = document.createElement("section");
-extraPage.className = "extra-page";
-extraPage.style.display = "none";
+document.querySelector(".app").insertBefore(
+    pageBox,
+    document.querySelector(".bottom-nav")
+);
 
-app.insertBefore(extraPage, document.querySelector(".bottom-nav"));
+function openPage(page) {
 
-// Task button
-function startTask(taskName) {
+    welcome.style.display = "none";
+    stats.style.display = "none";
+    section.style.display = "none";
+    pageBox.style.display = "none";
 
-    if (tg) {
-        tg.HapticFeedback?.impactOccurred("light");
-    }
-
-    alert(
-        taskName +
-        "\n\nTask opened.\nComplete the task and come back to claim your reward."
-    );
-}
-
-// Show page
-function showPage(page) {
-
-    // Hide extra page first
-    extraPage.style.display = "none";
-
-    // Home
     if (page === "Home") {
-
-        welcomeCard.style.display = "flex";
-        stats.style.display = "grid";
-        taskSection.style.display = "block";
+        welcome.style.display = "";
+        stats.style.display = "";
+        section.style.display = "";
     }
 
-    // Tasks
-    else if (page === "Tasks") {
+    if (page === "Tasks") {
+        section.style.display = "";
 
-        welcomeCard.style.display = "none";
-        stats.style.display = "none";
-        taskSection.style.display = "block";
-
-        document.querySelector(".section-title h2").innerText =
+        section.querySelector(".section-title h2").textContent =
             "All Tasks";
     }
 
-    // Wallet
-    else if (page === "Wallet") {
+    if (page === "Wallet") {
+        pageBox.style.display = "block";
 
-        welcomeCard.style.display = "none";
-        stats.style.display = "none";
-        taskSection.style.display = "none";
-
-        extraPage.innerHTML = `
-            <div class="page-card">
+        pageBox.innerHTML = `
+            <div style="
+                padding:30px;
+                text-align:center;
+                color:white;
+            ">
                 <h2>💰 Wallet</h2>
-                <p class="page-balance">$0.00</p>
-
-                <div class="wallet-box">
-                    <p>Available Balance</p>
-                    <strong>$0.00</strong>
-                </div>
-
-                <button class="action-button">
+                <h1>$0.00</h1>
+                <p>Your available balance</p>
+                <button onclick="alert('Complete tasks to earn rewards.')">
                     Withdraw
                 </button>
-
-                <p class="note">
-                    Complete tasks to increase your balance.
-                </p>
             </div>
         `;
-
-        extraPage.style.display = "block";
     }
 
-    // Profile
-    else if (page === "Profile") {
+    if (page === "Profile") {
+        pageBox.style.display = "block";
 
-        welcomeCard.style.display = "none";
-        stats.style.display = "none";
-        taskSection.style.display = "none";
-
-        extraPage.innerHTML = `
-            <div class="page-card">
+        pageBox.innerHTML = `
+            <div style="
+                padding:30px;
+                text-align:center;
+                color:white;
+            ">
                 <h2>👤 Profile</h2>
-
-                <div class="profile-box">
-                    <div class="profile-icon">👤</div>
-
-                    <h3>Vexora Earn User</h3>
-                    <p>Telegram Mini App</p>
-                </div>
-
-                <div class="profile-info">
-                    <p><strong>Total Earned:</strong> $0.00</p>
-                    <p><strong>Completed Tasks:</strong> 0</p>
-                </div>
+                <h3>Vexora Earn User</h3>
+                <p>Total Earned: $0.00</p>
+                <p>Completed Tasks: 0</p>
             </div>
         `;
-
-        extraPage.style.display = "block";
-    }
-
-    if (tg) {
-        tg.HapticFeedback?.selectionChanged();
     }
 }
 
+nav.forEach(function(button) {
 
-// Bottom navigation
-navItems.forEach((button) => {
+    button.addEventListener("click", function() {
 
-    button.addEventListener("click", function () {
-
-        navItems.forEach((item) => {
+        nav.forEach(function(item) {
             item.classList.remove("active");
         });
 
         this.classList.add("active");
 
-        const page = this.querySelector("small").innerText.trim();
+        const page =
+            this.querySelector("small").textContent.trim();
 
-        showPage(page);
+        openPage(page);
     });
 
 });
 
-
-// Telegram Main Button
-if (tg) {
-    tg.MainButton.hide();
-}
-
-
-// Prevent text selection
-document.querySelectorAll("button").forEach((button) => {
-
-    button.addEventListener("contextmenu", (event) => {
-        event.preventDefault();
-    });
-
-});
-
-
-// Start on Home
-showPage("Home");
+openPage("Home");
