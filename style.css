@@ -1314,3 +1314,34 @@ body {
     box-shadow: none !important;
     text-shadow: none !important;
 }
+/* =========================================
+   REFERRAL — REMOVE COLOR & SHADOW ONLY
+   ========================================= */
+
+/* Referral navigation থাকবে, কিন্তু কোনো active color থাকবে না */
+.bottom-nav .nav-item:nth-child(3),
+.bottom-nav .nav-item:nth-child(3).active {
+    background: transparent !important;
+    color: #8f9bb3 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Referral icon-এর নীল/বেগুনি active color বন্ধ */
+.bottom-nav .nav-item:nth-child(3) span,
+.bottom-nav .nav-item:nth-child(3).active span {
+    color: #8f9bb3 !important;
+    text-shadow: none !important;
+}
+
+/* Referral text */
+.bottom-nav .nav-item:nth-child(3) small {
+    color: #8f9bb3 !important;
+}
+
+/* Referral-এ চাপ দিলেও কোনো glow/রঙ হবে না */
+.bottom-nav .nav-item:nth-child(3):active {
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: scale(.98);
+}
